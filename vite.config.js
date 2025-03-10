@@ -18,8 +18,9 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: "./lib/main.ts",
+      entry: "./lib/index.ts",
       formats: ["es"],
+      name: "front-ui-vite",
     },
     rollupOptions: {
       external: Object.keys(peerDependencies),
