@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/front-ui-vite.js"
+      "import": "./dist/main.js"
     },
     "./styles.css": {
       "default": "./dist/front-ui-vite.css"

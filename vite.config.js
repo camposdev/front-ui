@@ -18,14 +18,14 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: "./lib/index.ts",
+      entry: "./lib/main.ts",
       formats: ["es"],
-      name: "front-ui-vite",
     },
     rollupOptions: {
       external: Object.keys(peerDependencies),
       output: {
-        globals: { react: "React", "react-dom": "ReactDOM" }
+        globals: { react: "React", "react-dom": "ReactDOM" },
+        entryFileNames: "main.js",
       },
     },
   },
