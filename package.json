@@ -9,7 +9,7 @@
       "import": "./dist/front-ui-vite.js"
     },
     "./styles.css": {
-      "default": "./dist/styles.css"
+      "default": "./dist/front-ui-vite.css"
     }
   },
   "files": [
