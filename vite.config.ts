@@ -1,22 +1,30 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
+import { peerDependencies } from "./package.json";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), dts({ include: ["lib"] })],
+  plugins: [
+    react(),
+    tailwindcss(),
+    dts({
+      insertTypesEntry: true,
+      exclude: ["**/*.stories.ts", "**/*.test.tsx"],
+    }),
+  ],
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "lib/main.ts"),
+      entry: "./lib/main.ts",
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "tailwindcss"],
+      external: Object.keys(peerDependencies),
       output: {
+        globals: { react: "React", "react-dom": "ReactDOM" },
         entryFileNames: "main.js",
       },
     },
